@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class FormulaService {
 
-    public double calcular_sumatoria_simple(int N) {
+    public Map<String, Double> calcular_sumatoria_simple(int N) {
         double num = 3.0, anterior = 0.0, suma = 0.0, division = 0.0;
         int it = 0;
 
@@ -18,7 +18,7 @@ public class FormulaService {
             division = num / it;
             anterior = division;
         } while (it <= N);
-        return suma;
+        return Map.of("termino_n", division, "suma",  suma);
     }
 
     public double calcular_sumatoria_doble(int N) {
@@ -42,7 +42,7 @@ public class FormulaService {
         return sumatoria;
     }
 
-    public static Map<String, String> generar_vectores(int N) {
+    public Map<String, String> generar_vectores(int N) {
 
         int vector1[] = new int[N];
         int vector2[] = new int[N];

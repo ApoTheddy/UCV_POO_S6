@@ -15,6 +15,8 @@ public class Prueba1 {
         System.out.println("vector2: " + vectores.get("vector2"));
         System.out.println("vector_suma: " + vectores.get("vector_suma"));
         System.out.println("elementos_comun: " + vectores.get("elementos_comun"));
+
+        System.out.println(frm_ctrl.calcular_sumatoria_simple(5).get("termino_n"));
     }
 
 }
