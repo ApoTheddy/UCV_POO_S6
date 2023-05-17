@@ -1,7 +1,10 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class FormulaService {
 
@@ -21,10 +24,17 @@ public class FormulaService {
     public double calcular_sumatoria_doble(int N) {
         double num = 3.0, anterior = 0.0, sumatoria = 0.0, division = 0.0;
         int it = 0;
+        int verifica_operador = 0;
 
         do {
             it += 2;
-            sumatoria += anterior;
+            if (verifica_operador == 0) {
+                sumatoria += anterior;
+                verifica_operador = 1;
+            } else {
+                sumatoria += anterior;
+                verifica_operador = 0;
+            }
             division = num / it;
             anterior = division;
         } while (it <= (2 * N));
@@ -37,7 +47,7 @@ public class FormulaService {
         int vector1[] = new int[N];
         int vector2[] = new int[N];
         int vectorSuma[] = new int[N];
-        String elementosComun = "";
+        ArrayList<Integer> elementosComun = new ArrayList<>();
 
         for (int i = 0; i < N; ++i) {
             vector1[i] = generateRandomNumber(10, 50);
@@ -53,16 +63,18 @@ public class FormulaService {
         for (int i = 0; i < N; ++i) {
             for (int j = 0; j < N; ++j) {
                 if (vector1[i] == vector2[j]) {
-                    elementosComun += "Valor: " + vector1[i] + "\nPosicion en el vector1: " + i + "\nPosicion en el vector2: " + j + "\n\n";
+                    elementosComun.add(vector1[i]);
                 }
             }
         }
+
+        Set elementosComunSet = new HashSet<>(elementosComun);
 
         Map<String, String> valores = Map.of(
                 "vector1", Arrays.toString(vector1),
                 "vector2", Arrays.toString(vector2),
                 "vector_suma", Arrays.toString(vectorSuma),
-                "elementos_comun", elementosComun);
+                "elementos_comun", Arrays.toString(elementosComunSet.toArray()));
 
         return valores;
     }

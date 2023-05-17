@@ -1,14 +1,20 @@
 package pruebas;
 
+import java.util.Map;
+
 import controller.FormulaController;
 
 public class Prueba1 {
 
     public static void main(String[] args) {
         FormulaController frm_ctrl = new FormulaController();
+        
 
-        double sumatoria = frm_ctrl.calcular_sumatoria_simple(5);
-        System.out.println("sumatoria: " + sumatoria);
+        Map<String,String> vectores = frm_ctrl.generar_vectores(8);
+        System.out.println("vector1: " + vectores.get("vector1"));
+        System.out.println("vector2: " + vectores.get("vector2"));
+        System.out.println("vector_suma: " + vectores.get("vector_suma"));
+        System.out.println("elementos_comun: " + vectores.get("elementos_comun"));
     }
 
 }
