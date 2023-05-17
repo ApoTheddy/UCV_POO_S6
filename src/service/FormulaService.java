@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 public class FormulaService {
 
     public Map<String, Double> calcular_sumatoria_simple(int N) {
